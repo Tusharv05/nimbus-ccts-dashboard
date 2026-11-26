@@ -49,6 +49,8 @@ export interface CalculatedPlantRow {
   plant_name: string;
   town: string;
   state: string;
+  latitude: number;
+  longitude: number;
   plant_type: 'Integrated' | 'Grinding';
   output_fy26_mt: number;
   clinker_produced_mt: number;

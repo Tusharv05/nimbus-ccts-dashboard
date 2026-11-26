@@ -19,11 +19,9 @@ export const Header: React.FC<HeaderProps> = ({
   const navTabs = [
     { id: 'overview', label: '1. Executive Overview' },
     { id: 'plants', label: '2. Plant Breakdown' },
-    { id: 'assumptions', label: '3. Assumptions & Sensitivities' },
-    { id: 'method', label: '4. Auditor Method' },
-    { id: 'physical', label: '5. Physical Risk Flags' },
-    { id: 'sources', label: '6. Data Register' },
-    { id: 'export', label: '7. Board Export' },
+    { id: 'physical', label: '3. Physical Risk Flags' },
+    { id: 'method', label: '4. Method & Sources' },
+    { id: 'export', label: '5. Board Export & Report' },
   ];
 
   return (
@@ -44,12 +42,12 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           <div className="flex items-center gap-2 text-xs">
-            {/* Assumption Count */}
+            {/* Model Parameters Count */}
             <span className="text-[11px] px-2 py-0.5 rounded border border-[#b7660a] text-[#b7660a] bg-[#fff8ef] font-mono">
-              <strong>{assumptionCount}</strong> model assumptions
+              <strong>{assumptionCount}</strong> model parameters
             </span>
 
-            {/* Allocation Selector */}
+            {/* Allocation Basis Selector */}
             <div className="flex items-center bg-[#f3f4f6] border border-[#d1d5db] rounded px-1 py-0.5">
               <span className="text-[11px] text-[#6b7280] mr-1.5 hidden sm:inline">Basis:</span>
               <select

@@ -5,10 +5,8 @@ import { Header } from '../components/Header';
 import { Scope2WarningBanner } from '../components/Scope2WarningBanner';
 import { OverviewScreen } from '../components/OverviewScreen';
 import { PlantsScreen } from '../components/PlantsScreen';
-import { AssumptionsScreen } from '../components/AssumptionsScreen';
-import { MethodScreen } from '../components/MethodScreen';
 import { PhysicalScreen } from '../components/PhysicalScreen';
-import { SourcesScreen } from '../components/SourcesScreen';
+import { MethodSourcesScreen } from '../components/MethodSourcesScreen';
 import { ExportScreen } from '../components/ExportScreen';
 import { BenchmarkTargetModal, OfficialBenchmarkTarget } from '../components/BenchmarkTargetModal';
 import { IEXHistoricalPriceModal } from '../components/IEXHistoricalPriceModal';
@@ -56,7 +54,7 @@ export default function Home() {
   const handleResetAssumptions = () => {
     setAssumptions(INITIAL_ASSUMPTIONS);
     const timeStr = new Date().toLocaleTimeString('en-IN', { hour12: false });
-    setAuditLog((prevLog) => [...prevLog, { timestamp: timeStr, field: 'Reset to defaults', prev: 0, next: 0 }]);
+    setAuditLog((prevLog) => [...prevLog, { timestamp: timeStr, field: 'Reset defaults', prev: 0, next: 0 }]);
   };
 
   return (
@@ -69,15 +67,15 @@ export default function Home() {
         assumptionCount={4}
       />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* Scope 2 Mandatory Auditor Warning */}
+      <main className="flex-1 max-w-[1240px] w-full mx-auto px-3 sm:px-4 py-4">
+        {/* Scope 2 Mandatory Auditor Warning Banner */}
         <Scope2WarningBanner />
 
         {/* Validation Errors if any */}
         {calculationData.errors.length > 0 && (
-          <div className="mb-6 p-4 bg-[#FCE8E6] border-l-4 border-[#C5221F] rounded-r">
-            <h4 className="text-xs font-mono font-bold text-[#C5221F] uppercase">CSV Validation Report (Errors)</h4>
-            <ul className="list-disc pl-5 mt-1 text-xs text-[#5C100E] space-y-1">
+          <div className="mb-4 p-3 bg-[#FCE8E6] border-l-4 border-[#C5221F] rounded-r text-xs">
+            <h4 className="font-mono font-bold text-[#C5221F] uppercase">CSV Validation Report (Errors)</h4>
+            <ul className="list-disc pl-5 mt-1 text-[#5C100E] space-y-0.5">
               {calculationData.errors.map((err, i) => (
                 <li key={i}>{err}</li>
               ))}
@@ -85,7 +83,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* Active Screen View */}
+        {/* 1. Executive Overview */}
         {activeScreen === 'overview' && (
           <OverviewScreen
             plants={calculationData.plants}
@@ -95,6 +93,7 @@ export default function Home() {
           />
         )}
 
+        {/* 2. Plant Compliance Breakdown */}
         {activeScreen === 'plants' && (
           <PlantsScreen
             plants={calculationData.plants}
@@ -104,8 +103,12 @@ export default function Home() {
           />
         )}
 
-        {activeScreen === 'assumptions' && (
-          <AssumptionsScreen
+        {/* 3. Physical Risk Screening */}
+        {activeScreen === 'physical' && <PhysicalScreen plants={calculationData.plants} />}
+
+        {/* 4. Unified Method & Sources (Parameters, Legal Guide & Data Register) */}
+        {activeScreen === 'method' && (
+          <MethodSourcesScreen
             assumptions={assumptions}
             onUpdateAssumption={handleUpdateAssumption}
             onReset={handleResetAssumptions}
@@ -114,12 +117,7 @@ export default function Home() {
           />
         )}
 
-        {activeScreen === 'method' && <MethodScreen />}
-
-        {activeScreen === 'physical' && <PhysicalScreen plants={calculationData.plants} />}
-
-        {activeScreen === 'sources' && <SourcesScreen />}
-
+        {/* 5. Board Report & CSV Export */}
         {activeScreen === 'export' && (
           <ExportScreen
             plants={calculationData.plants}
@@ -148,8 +146,8 @@ export default function Home() {
         />
       </main>
 
-      <footer className="border-t border-[#E5E5E0] bg-[#FFFFFF] py-4 text-center text-xs text-[#737373] mt-12">
-        <div className="max-w-7xl mx-auto px-4">
+      <footer className="border-t border-[#E5E5E0] bg-[#FFFFFF] py-3 text-center text-xs text-[#737373] mt-8">
+        <div className="max-w-[1240px] mx-auto px-4">
           Nimbus Cement Ltd — Carbon Credit Trading Scheme Compliance & Climate Exposure Dashboard (v1.0). Prepared for Meera Iyer (Head of Sustainability).
         </div>
       </footer>

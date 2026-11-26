@@ -6,6 +6,8 @@ export function calculatePlantRow(
     plant_name: string;
     town: string;
     state: string;
+    latitude?: number;
+    longitude?: number;
     plant_type: 'Integrated' | 'Grinding';
     cement_output_fy2025_26_mt: number;
     clinker_produced_fy2025_26_mt: number;
@@ -30,10 +32,6 @@ export function calculatePlantRow(
     ? filedScope1Kt 
     : filedScope1Kt + economicMovedEmissionsKt;
 
-  // Output in tonnes = outputMt * 1,000,000 tonnes = outputMt * 1,000 kt.
-  // Emissions in tonnes = Scope1 kt * 1,000.
-  // Intensity = (attributedScope1Kt * 1,000) / (outputMt * 1,000,000) = attributedScope1Kt / (outputMt * 1,000)
-  // Let's verify: P01 filed: 3,125 kt / (3.30 Mt * 1000) = 3125 / 3300 = 0.946969... = 0.947 tCO2/t cement! Exactly matches PRD!
   const filedIntensity = filedScope1Kt / (outputMt * 1000);
   const attributedIntensity = attributedScope1Kt / (outputMt * 1000);
 
@@ -50,12 +48,7 @@ export function calculatePlantRow(
   // Gap = Intensity - Target (in tCO2 / t cement)
   const gap = attributedIntensity - targetIntensity;
 
-  // Shortfall in tonnes CO2 = max(0, gap) * (outputMt * 1,000,000 tonnes cement)
-  // Shortfall in kt CO2 = shortfall tonnes / 1,000 = max(0, gap) * outputMt * 1,000
-  // Convert to ₹ crore: kt × ₹ per tonne ÷ 10,000 (from prompt specification)
-  // Let's verify prompt: "Convert to ₹ crore: kt × ₹ per tonne ÷ 10,000."
-  // Shortfall kt = max(0, gap) * outputMt * 1000.
-  // Exposure Cr = (Shortfall kt * Price) / 10,000
+  // Shortfall in kt CO2 = max(0, gap) * outputMt * 1,000
   const shortfallKt = Math.max(0, gap) * outputMt * 1000;
   const surplusKt = Math.max(0, -gap) * outputMt * 1000;
 
@@ -68,6 +61,8 @@ export function calculatePlantRow(
     plant_name: plant.plant_name,
     town: plant.town,
     state: plant.state,
+    latitude: plant.latitude || 0,
+    longitude: plant.longitude || 0,
     plant_type: plant.plant_type,
     output_fy26_mt: outputMt,
     clinker_produced_mt: plant.clinker_produced_fy2025_26_mt,
