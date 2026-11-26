@@ -117,7 +117,7 @@ export const ExportScreen: React.FC<ExportScreenProps> = ({ plants, assumptions,
           Reproducible Calculation Datasets & Board Export
         </h2>
         <p className="text-xs text-[#5a6578] mt-1">
-          Export transparent calculation models, audit trails, and printable executive summaries for the Board of Directors and statutory review.
+          Export transparent calculation models, audit trails, and printable executive summaries for the Board of Directors and independent review.
         </p>
 
         {downloadSuccess && (

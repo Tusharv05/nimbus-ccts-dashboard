@@ -83,18 +83,18 @@ export const DATA_SOURCES_REGISTRY: DataSourceRegistryItem[] = [
     id: 'ngfs-scenarios',
     name: 'NGFS Scenarios Portal (IIASA Scenario Explorer)',
     url: 'https://www.ngfs.net/ngfs-scenarios-portal/',
-    usedFor: 'FY28–FY40 carbon price sensitivity ranges (Current Policies = ₹600, NDCs = ₹1,200, Statutory Penalty = ₹2,400)',
+    usedFor: 'FY28–FY40 carbon price sensitivity ranges (Current Policies = ₹600, NDCs = ₹1,200, High Sensitivity = ₹2,400)',
     v1Status: 'Used now (Assumption)',
     tag: 'Assumption',
     licence: 'NGFS / IIASA Academic & Financial License',
     accessDate: '2026-11-26',
-    notes: 'Modeled carbon price trajectories for India. High scenario (₹2,400) reflects 2x penalty multiplier under Energy Conservation Act.'
+    notes: 'Modeled carbon price trajectories for India. High scenario (₹2,400) reflects Energy Conservation Act 2x penalty upper bound.'
   },
   {
     id: 'open-meteo-climate',
     name: 'Open-Meteo Climate API (CMIP6 HighResMIP)',
     url: 'https://climate-api.open-meteo.com/v1/climate',
-    usedFor: 'Extreme heat days (daily max temp ≥ 40°C) per plant coordinate: 2020–2029 baseline vs 2031–2040 horizon under SSP2-4.5',
+    usedFor: 'Extreme heat days (daily max temp ≥ 40°C) per plant coordinate: 2020–2029 baseline vs 2031–2040 horizon (EC_Earth3P_HR highres-future experiment)',
     v1Status: 'Screening Dataset',
     tag: 'Data',
     licence: 'Non-commercial free tier (CC BY CMIP6 & Open-Meteo)',

@@ -173,11 +173,11 @@ export const PhysicalScreen: React.FC<PhysicalScreenProps> = ({ plants }) => {
                   ? 'bg-[#ecfdf5] text-[#065f46] border-[#a7f3d0] font-bold' 
                   : 'bg-[#f3f4f6] text-[#374151] border-[#d1d5db]'
               }`}>
-                {isLiveActive ? '● Live API Data' : '○ Verified Dated Snapshot'}
+                {isLiveActive ? '● Live API Data' : '○ Dated snapshot (26 Nov 2026)'}
               </span>
             </h3>
             <p className="text-xs text-[#5a6578] mt-0.5">
-              Annual days with daily max temperature ≥ 40°C under SSP2-4.5 (EC_Earth3P_HR model). Status: <strong>{queryTimestamp}</strong>.
+              Annual days with daily max temperature ≥ 40°C from CMIP6 HighResMIP (EC_Earth3P_HR model, highres-future experiment). Status: <strong>{queryTimestamp}</strong>.
             </p>
           </div>
           <button

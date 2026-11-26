@@ -250,9 +250,9 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
 
             <div className="space-y-1.5 mt-2 text-xs">
               {[
-                { cut: 2.7, label: 'Official ICAP Factsheet & Gazette Benchmark', cost: fy27Central },
-                { cut: 4.7, label: 'Reported Industry Range (Lower bound)', cost: (fy27Central * 4.7) / 2.7 },
-                { cut: 7.6, label: 'Reported Industry Range (Upper bound)', cost: (fy27Central * 7.6) / 2.7 },
+                { cut: 2.7, label: 'Notified Benchmark (Gazette Table 2 & ICAP Factsheet)', cost: fy27Central },
+                { cut: 4.7, label: 'Reported Industry Tier (Alternate Lower Bound)', cost: (fy27Central * 4.7) / 2.7 },
+                { cut: 7.6, label: 'Reported Industry Tier (Alternate Upper Bound)', cost: (fy27Central * 7.6) / 2.7 },
               ].map(({ cut, label, cost }) => (
                 <div
                   key={cut}
@@ -275,13 +275,13 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
           {/* Driver Ranking Widget */}
           <div className="mt-3 pt-2 border-t border-[#e5e7eb]">
             <span className="text-[11px] font-bold text-[#16233b] block mb-1">
-              Key Exposure Drivers (Ranked by Sensitivity):
+              Key Exposure Drivers (Ranked by Model Sensitivity):
             </span>
             <ul className="text-[10px] text-[#5a6578] space-y-0.5">
-              <li><strong>1. Carbon Price:</strong> ±100% swing (₹18 Cr @ ₹600/t to ₹72 Cr @ ₹2,400/t).</li>
-              <li><strong>2. Target Cut Rate:</strong> ±74% swing across proposed ranges (₹36 Cr to ₹62 Cr).</li>
-              <li><strong>3. Volume Growth:</strong> +65% CAGR impact by 2040 (production to 49.9 Mt).</li>
-              <li><strong>4. Scope 2 Missing:</strong> +15–25% uncounted statutory liability across group.</li>
+              <li><strong>1. Production Growth (+172% by FY40):</strong> Output scales from 18.35 to 49.90 Mt (8% CAGR), inflating FY40 exposure from ₹121 Cr (flat output) to ₹329 Cr (+₹208 Cr).</li>
+              <li><strong>2. Carbon Price (−50% / +100%):</strong> Price swings from central ₹1,200/t (₹35.8 Cr) down to ₹600/t (₹17.9 Cr) and up to ₹2,400/t (₹71.6 Cr).</li>
+              <li><strong>3. FY27 Target Cut Rate (+74% at 4.7%):</strong> Tightening the integrated cut from the notified 2.7% to 4.7% raises FY27 cost from ₹35.8 Cr to ₹62.3 Cr.</li>
+              <li><strong>4. Scope 2 Exclusion:</strong> BEE PAT data shows grinding draws 70–85 kWh/t. At CEA&apos;s 0.716 kg CO₂/kWh factor, Scope 2 adds ~0.053 tCO₂/t, understating grinding unit liability by 3–4×.</li>
             </ul>
           </div>
         </div>

@@ -75,7 +75,7 @@ export const MethodSourcesScreen: React.FC<MethodSourcesScreenProps> = ({
                     onClick={onOpenIEXModal}
                     className="text-xs text-[#1967D2] hover:underline font-medium cursor-pointer"
                   >
-                    IEX & PXIL ESCert trades table ↗
+                    IEX & PXIL Energy Savings Certificate Trades (PAT Scheme) ↗
                   </button>
                 )}
                 <button
@@ -125,7 +125,7 @@ export const MethodSourcesScreen: React.FC<MethodSourcesScreenProps> = ({
                   onChange={(e) => onUpdateAssumption('priceHighInr', parseFloat(e.target.value) || 0)}
                   className="w-full p-1.5 border border-[#dde2ea] rounded font-mono"
                 />
-                <span className="text-[10px] text-[#6b7280]">2× central (statutory penalty)</span>
+                <span className="text-[10px] text-[#6b7280]">2× central (Energy Conservation Act Section 14A penalty ceiling)</span>
               </div>
 
               <div>
@@ -297,7 +297,7 @@ export const MethodSourcesScreen: React.FC<MethodSourcesScreenProps> = ({
                   <strong>Low (₹600/t):</strong> Domestic empirical floor anchored by IEX PAT Scheme ESCert market auctions (₹2,165/ESCert ÷ 3.0 tCO₂/toe ≈ ₹722/t CO₂ implied).
                 </li>
                 <li>
-                  <strong>High (₹2,400/t):</strong> Statutory non-compliance penalty scenario ($2\times$ central market price multiplier under Section 14A of the Energy Conservation (Amendment) Act, 2022).
+                  <strong>High (₹2,400/t):</strong> Non-compliance penalty scenario (up to 2× carbon credit price multiplier under Section 14A of the Energy Conservation (Amendment) Act, 2022).
                 </li>
               </ul>
             </li>

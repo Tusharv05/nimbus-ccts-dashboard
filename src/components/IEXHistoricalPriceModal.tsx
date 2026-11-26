@@ -49,15 +49,15 @@ export const IEXHistoricalPriceModal: React.FC<{
           <div>
             <div className="flex items-center space-x-2">
               <span className="text-xs font-mono font-bold uppercase text-[#1967D2] bg-[#E8F0FE] px-2 py-0.5 rounded border border-[#C2D7FA]">
-                IEX Exchange Trade Data
+                IEX & PXIL Energy Savings Certificate Trades (PAT Scheme)
               </span>
-              <TagBadge tag="Official" />
+              <TagBadge tag="Data" />
             </div>
             <h3 className="text-lg font-serif font-bold text-[#1A1A1A] mt-1">
-              Indian Energy Exchange (IEX) ESCerts Discovered Prices
+              Historical ESCert Market-Clearing Prices & Implied Carbon Floor
             </h3>
             <p className="text-xs text-[#555555] mt-0.5">
-              Discovered market-clearing prices under PAT Cycle 2 & Cycle 3, converted to implied ₹/tCO₂ (1 toe ≈ 3.0 tCO₂).
+              Trading data from the Indian Energy Exchange (IEX) and PXIL. Note: ESCerts trade in energy units (per tonne of oil equivalent); conversion at 1 toe ≈ 3.0 tCO₂ provides an analytical domestic reference floor, not a direct carbon market.
             </p>
           </div>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-700 text-xl font-bold px-2 py-1">
