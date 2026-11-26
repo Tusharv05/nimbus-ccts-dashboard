@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
             <h1 className="text-lg sm:text-xl font-serif font-bold text-[#111827] tracking-tight">
               Nimbus Cement Ltd: Climate Exposure Dashboard
             </h1>
-            <span className="text-[11px] font-mono font-bold uppercase px-1.5 py-0.2 bg-[#8B261E] text-white rounded">
+            <span className="text-[11px] font-mono font-bold uppercase px-2 py-0.5 bg-[#8B261E] text-white rounded whitespace-nowrap inline-block">
               v1 Transition Risk
             </span>
             <span className="text-xs text-[#6b7280] hidden md:inline">
