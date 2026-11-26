@@ -6,7 +6,7 @@ interface HeaderProps {
   setActiveScreen: (screen: string) => void;
   allocationBasis: AllocationBasis;
   setAllocationBasis: (basis: AllocationBasis) => void;
-  assumptionCount: number;
+  assumptionCount?: number;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -14,7 +14,6 @@ export const Header: React.FC<HeaderProps> = ({
   setActiveScreen,
   allocationBasis,
   setAllocationBasis,
-  assumptionCount,
 }) => {
   const navTabs = [
     { id: 'overview', label: '1. Executive Overview' },
@@ -36,17 +35,9 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="text-[11px] font-mono font-bold uppercase px-2 py-0.5 bg-[#8B261E] text-white rounded whitespace-nowrap inline-block">
               v1 Transition Risk
             </span>
-            <span className="text-xs text-[#6b7280] hidden md:inline">
-              Board Briefing for Meera Iyer (Head of Sustainability) • FY27–FY40
-            </span>
           </div>
 
           <div className="flex items-center gap-2 text-xs">
-            {/* Model Parameters Count */}
-            <span className="text-[11px] px-2 py-0.5 rounded border border-[#b7660a] text-[#b7660a] bg-[#fff8ef] font-mono">
-              <strong>{assumptionCount}</strong> model parameters
-            </span>
-
             {/* Allocation Basis Selector */}
             <div className="flex items-center bg-[#f3f4f6] border border-[#d1d5db] rounded px-1 py-0.5">
               <span className="text-[11px] text-[#6b7280] mr-1.5 hidden sm:inline">Basis:</span>

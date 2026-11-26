@@ -64,7 +64,6 @@ export default function Home() {
         setActiveScreen={setActiveScreen}
         allocationBasis={allocationBasis}
         setAllocationBasis={setAllocationBasis}
-        assumptionCount={4}
       />
 
       <main className="flex-1 max-w-[1240px] w-full mx-auto px-3 sm:px-4 py-4">
